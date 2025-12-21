@@ -1,0 +1,31 @@
+Bias (Error from Simplicity):
+
+Bias is the error caused when a model is too simple to capture the true pattern.
+
+Characteristics:
+Strong assumptions
+Misses important patterns
+High training error
+High test error
+
+Example:
+Linear regression on curved data
+Low-degree polynomial for complex data
+📌 This is called UNDERFITTING
+
+
+Variance (Error from Sensitivity)
+
+Variance is the error caused when a model is too complex and reacts too much to training data.
+
+Characteristics:
+Fits noise in data
+Very low training error
+High test error
+
+Example:
+High-degree polynomial
+Decision tree with no depth limit
+📌 This is called OVERFITTING
+
+********Bias misses the trend, variance memorizes the noise.*******
