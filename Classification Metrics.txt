@@ -1,0 +1,73 @@
+1. Accuracy score :
+-formula: 
+ Accuracy = Number of Correct Predictions​ / Total Number of Predictions
+-Problem:
+ Does not define nature of mistake , also fails when data is imbalanced
+ 
+2. Confusion Matrix :
+ A confusion matrix is a table that shows how well a classification model performed by comparing actual labels with predicted labels
+ It tells what the model got right and what it got wrong.
+ | Actual \ Predicted | Positive | Negative |
+ | ------------------ | -------- | -------- |
+ | **Positive**       | **TP**   | **FN**   |
+ | **Negative**       | **FP**   | **TN**   |
+ 
+ 
+-True Positive (TP): 
+ Model predicts Positive
+ Actual class is Positive
+ ✔ Correct
+ Example:
+ Disease present → Model says disease present
+-False Positive (FP) (Type-I Error):
+ Model predicts Positive
+ Actual class is Negative
+ ❌ Wrong
+ Example:
+ Healthy person → Model says disease present
+-False Negative (FN) (Type-II Error):
+ Model predicts Negative
+ Actual class is Positive
+ ❌ Wrong
+ Example:
+ Disease present → Model says no disease
+-True Negative (TN):
+ Model predicts Negative
+ Actual class is Negative
+ ✔ Correct
+ Example:
+ Healthy person → Model says healthy
+
+3. Precision :
+-Precision answers the question:
+ “Out of all the positive predictions, how many were actually correct?”
+-Formula :
+ Precision = TP​ / TP + FP
+ Precision matters when False Positives are costly.   Example- in spam mail identification
+
+4. Recall (Sensitivity / True Positive Rate):
+-Recall answers the question:
+ “Out of all actual positives, how many did the model correctly identify?”
+-Formula:
+ Precision = TP​ / TP + FN
+
+ Recall matters when False Negatives are dangerous.   Example- in cancer detection
+
+
+ Trade-off Between Precision and Recall-
+ Very strict model → high precision, low recall
+ Very lenient model → high recall, low precision      
+
+5. F1 Score:
+ The F1 score is a single metric that balances Precision and Recall.
+ It is used when you want both false positives and false negatives to be low.
+-Formula:
+ F1 Score=2 × Precision × Recall​ / Precision + Recall
+
+ Use F1 score when:
+ -Data is imbalanced
+ -Both FP and FN are important
+ -Accuracy is misleading
+
+ Ex: Fraud detection, Spam detection, Medical Diagnosis
+ 'F1 score is harmonic summation of recall and precision and favours or penelize lower values'
