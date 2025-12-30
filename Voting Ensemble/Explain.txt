@@ -1,0 +1,41 @@
+
+A Voting Ensemble combines predictions from multiple models and makes a final decision by voting.
+Instead of trusting one model you trust group
+
+WHy does it work:
+If:
+One model is wrong sometimes
+Another model is right at those times
+which reduce overall error
+
+Only works when model are diverse and not identical
+
+Now there are two types :
+
+Hard Voting (Majority Vote)=>
+Each model predicts a class label.
+Final class = class with most votes.
+Example:
+Model outputs: [1, 1, 0]
+Final output: 1
+
+Soft Voting (Probability Voting)=>
+Each model predicts probabilities, not labels.
+Final probability = average of probabilities
+Final class = class with highest average probability
+
+Weighted Voting=>
+Not all models are equally good.
+So we can give:
+More weight to better models
+Less weight to weaker ones
+Example:
+Model A weight = 2
+Model B weight = 1
+Model C weight = 1
+
+Voting Ensembles mainly reduces Variance thats why combining high variance models help
+
+
+Sklearn library:
+lass sklearn.ensemble.VotingClassifier(estimators, *, voting='hard/soft', weights=None, n_jobs=None, flatten_transform=True, verbose=False)
