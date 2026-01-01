@@ -16,3 +16,7 @@ Bagging is more helpfull if we have over fitting (high variance) base models.
  Each sample will contain training and test data sets which are different from each other and remember that training sample may contain duplicate observations.
 
 
+In Bagging Regressor:
+ all the steps are same as classifier but the Aggregation step is changed we take the mean of each estimators output
+ 
+
