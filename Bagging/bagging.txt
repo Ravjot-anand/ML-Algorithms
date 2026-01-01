@@ -1,0 +1,18 @@
+Bagging is a short form of *Bootstrap Aggregating. It is an ensemble learning approach used to improve the stability and accuracy of machine learning algorithms.
+
+Bagging reduces variance and helps to avoid overfitting. 
+Although it is usually applied to decision tree methods, it can be used with any type of method.
+
+Bagging is more helpfull if we have over fitting (high variance) base models.
+
+
+*Bootstrapping:
+ It is a resampling technique, where large numbers of smaller samples of the same size are repeatedly drawn, with replacement, from a single original sample.
+ So this technique will enable us to produce as many subsample as we required from the original training data.
+ Here 'replacement' word signifies that the same obervation may repeat more than once in a given sample,
+ and hence this technique is also known as sampleing with replacement
+ 
+ So in case of Bagging we create multiple number of bootstrap samples from given data to train our base models. 
+ Each sample will contain training and test data sets which are different from each other and remember that training sample may contain duplicate observations.
+
+
