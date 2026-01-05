@@ -1,0 +1,56 @@
+
+Core Intution:
+Imagine you are trying to hire a team of doctors to diagnose patients.
+-Random Forest approach: You hire 100 general doctors. They all look at the patient and vote.
+
+-AdaBoost approach: You hire one doctor. They diagnose everyone. You identify the patients they got wrong. 
+You then hire a second doctor and say, "I don't care about the easy cases; I only want you to focus on the patients the first doctor missed."
+
+******AdaBoost builds a team sequentially. Each new model tries to fix the mistakes of the previous one.*****
+
+The weak Learner: the Stump
+-A Stump is a tree with only one split (one root, two leaves)
+-The stump is terible predictor(high Bias),But AdaBoost combines hundreds of them to make a super-predictor.
+
+In this algo the classes are also denoted as +1 and -1.
+
+How it works:
+Step 1: Initialize WeightsAt the start, every row of data is equal. 
+If you have 100 rows, every row has a weight of 1/100.
+
+Step 2: Train the First Stump
+The first stump tries to classify the data. Since it's just a stump, it will make many mistakes.
+
+Step 3: Calculate "Amount of Say" (Model Weight)
+We check how well this stump did.
+-If it got 90% right, we give it a high "Amount of Say".
+-If it got 55% right (barely better than a coin flip), we give it a low "Amount of Say".
+
+Error rate inversly propotonal to Amount of Say(Model Weight).
+Amount of Say = 0.5 * ln(  1 - TotalError / TotalError ) 
+
+TotalError = sum of weightsof rows which have done wrong
+
+Step 4: Punish the Mistakes (Update Sample Weights)
+This is the magic step. We look at the rows the stump got wrong.
+-We increase the weight of these wrongly classified rows.
+ Formula: 
+  w(new) = w(old) * exp(Amount of Say/alpha) 
+   Since alpha is positive , exp(Amount of Say/alpha) will be a number greater than 1 so weight gets multiplied by large num gets heavy.
+
+-We decrease the weight of the correctly classified rows.
+ Formula: 
+  w(new) = w(old) * exp(-Amount of Say/alpha)
+
+-At last we normalize this so that it comes out to be 1 
+ Formula:
+ w(final) = w(new) / sum(w(new))
+
+
+****In the next round, the rows that were "wrong" effectively become "bigger" or more frequent. 
+The next stump must pay attention to them to get a good score, effectively forcing it to specialize on the hard cases.
+
+Step 5: Repeat
+We repeat this for, say, 50 stumps.
+
+And at the time of prediction this all weights will be usefull 
