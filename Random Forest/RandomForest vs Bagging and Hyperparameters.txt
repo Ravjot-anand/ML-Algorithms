@@ -1,0 +1,29 @@
+
+First Difference, Bagging can have base estimator as KNN and SVM but Random forest has only DEcision tree as base estimator.
+   so if we try to put decision tree as a base model for all base estimator in Bagging then still it is not a good idea.
+   Because it still doesnt have feature sampling and row sampling in it which has more randomness in it like Random Forest.
+
+Second Difference, In this case we can say that Bagging has tree level sampling and Random Forest node level(feature are selected randomly at each node) sampling.
+
+Third Difference, The random forest reduces variance more effectively as comaprision from Bagging
+
+Bagging: You ask 100 people to predict a stock price. They all read the same Wall Street Journal articles (Features), 
+but they focus on different days (Data rows). They will likely give very similar answers.
+
+Random Forest: You ask 100 people. You force Person A to read only the Tech section. Person B reads only the Real Estate section. 
+Person C reads only the Politics section. Their individual predictions might be weaker,
+but when you combine them, you get a complete picture of the economy that no single person had.
+
+
+Random Forest Hyperparameters:
+
+To tune the Random Forest:
+n_estimators: How many decision tree are there in the Random Forest
+max_features: How many columns are need to used
+bootstrap: if you want to chosse row randomly or not
+max_samples: How many number of rows are given to each decision tree
+
+We can use randomSearchCV and GridSearchCV for the hyperparameter tunning
+
+-and randomSearchCV is ggod for large dataset as it randomly select some models and gives the best score and hyperparameters
+it gives result near to best as it has some randomness 
