@@ -1,0 +1,38 @@
+Clustering:
+In Clustering, we have no labels. We just have a pile of data, and we ask the algorithm: 
+"Can you find any patterns or groups here?"
+
+imp Terms:
+Inertia / WCSS ----> The sum of squared distances between points and their centroid. Used to measure how "good" the cluster is.
+Centroid ----> The center point of a cluster.
+K ---->	The number of clusters
+
+K-Means:
+- k stands for number of cluters you want, the means stands for avg(the center)
+
+Algorithm :
+
+**Initialization: Pick K random points as your starting "Centroids" (the center of a cluster)
+
+**Assignment Step: Go through every single data point. Calculate the distance to each Centroid. 
+Assign the point to the closest one.
+
+**Update Step: Look at all the points belonging to the "Red" cluster. 
+Calculate the average of their coordinates ($x, y$). Move the Red Centroid to that exact average position.
+
+**Convergence: Repeat Steps 2 and 3. Stop when the Centroids stop moving (or move very little).
+
+
+-It usually uses Euclidean Distance (straight-line distance) to decide which cluster a point belongs to.
+-As it uses distance so it hates outliers.If you have one ppoint far away than centroid tries to move toward it
+ to minimize the distance, pullling the whole cluster off-center
+-Because it uses distance, you MUST scale your data (normalize it)
+
+
+-How to choose K:
+ We use the Elbow Method.
+ it goes like --->
+ *We run K-Means with K=1, then K=2, then K=3, up to K=10.
+ *For each K, we calculate the WCSS (Within-Cluster Sum of Squares). This is basically a score of "how compact are my clusters?"
+ *The Plot: As you add more clusters (increase K), the error will always go down. (If K = number of data points, error is 0).
+ *The Elbow: We look for the point where the improvement slows down drastically. It looks like an elbow in the graph. That is your optimal K.
