@@ -54,3 +54,31 @@ Step 5: Repeat
 We repeat this for, say, 50 stumps.
 
 And at the time of prediction this all weights will be usefull 
+
+
+Hyper parameters :
+Learning rate and alpha relation = so the lr * alpha hapens in the algo
+so this learning rate directly affects the alpha and if alpha is affected the decreasea and incease of weights in rows also affected
+**We can conclude that if n estimators is increased so we can give learning rate a very low value
+  which can lower the amplitude of increasing and decreasing of weights
+
+
+                         Bagging                      vs                      Boosting:
+Problem Solved      High Variance(overfitting)                    High Bias(underfitting)
+
+Base Models         Uses Deep, Complex Trees                      Uses Shallow Stumps (High bias models 
+                       (High variance models that                        that need to be boosted).
+                         need to be tamed).
+                        
+Result              It "smooths out" the noise.                   It "learns" the hard patterns.
+                       
+Structure           Parallel(train 100 trees sametime)            Sequential: Train Tree 1 $\to$ Tree 2 $\to$ Tree 3
+
+Weights             Equal: Every tree gets 1 vote.                Weighted: Good trees get more say; bad trees get less.
+
+Outliers            Robust: It usually ignores outliers           Sensitive: It might obsess over outliers
+                       because of the averaging.
+**
+Bagging Rule of Thumb: Use it when your model is too smart (memorizing data).
+Boosting Rule of Thumb: Use it when your model is too dumb (missing patterns).
+**
