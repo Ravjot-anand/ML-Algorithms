@@ -1,6 +1,8 @@
 Bias (Error from Simplicity):
 
 Bias is the error caused when a model is too simple to capture the true pattern.
+It cant perform well on training data and thus result on high error on test data.
+
 
 Characteristics:
 Strong assumptions
@@ -17,6 +19,7 @@ Low-degree polynomial for complex data
 Variance (Error from Sensitivity)
 
 Variance is the error caused when a model is too complex and reacts too much to training data.
+Works good on training data But cant perform on test data
 
 Characteristics:
 Fits noise in data
