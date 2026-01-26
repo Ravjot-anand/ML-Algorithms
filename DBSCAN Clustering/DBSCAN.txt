@@ -1,0 +1,42 @@
+DBSCAN Clustering:
+It is density based clustering. Their is another algo called OPTICS work on this principle
+
+DBSCAN doesn't need you to tell it "K" (Number of Clusters). It figures that out itself. But it needs two other rules:
+1)Epsilon: The "Reach."
+*How far can you reach to touch the next point?
+*If $\epsilon$ is too small, nobody touches anyone (everyone is Noise).
+*If $\epsilon$ is too big, everyone touches everyone (1 giant cluster).
+
+2)MinPoints: The "Crowd Size."
+*How many people need to be together to officially call it a "Group"?
+*Usually set to 3 or 4.
+
+The Three Types of Points
+DBSCAN labels every single data point as one of these:
+
+Core Point: The "Popular Kid."
+Has at least MinPoints neighbors within Epsilon distance.
+These points are fully inside a dense cluster.
+
+Border Point: The "Sidekick."
+Does NOT have enough neighbors to be a Core Point, BUT is close enough to touch a Core Point.
+It gets included in the cluster, but it's on the edge.
+
+Noise Point: The "Loner."
+Neither a Core Point nor close to one.
+DBSCAN completely ignores these. This is its superpower. It cleans your data for you.
+
+*this three types of points are represented in png attached*
+
+Algorithm:
+
+Step 1: identify all point as either core, border ornoise point
+
+Step 2: for all of unclustered core points
+ Step 1a: Create a new cluster
+ Step 2a: add all points that are unclustered and density connected(within epsilon distance) to current point 
+         into the cluster
+
+Step 3: For each unclustered border point assign it to cluster of nearest core point
+
+Step 4: Leave all the noise point as it is
