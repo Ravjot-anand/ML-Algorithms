@@ -49,7 +49,7 @@
 -Recall answers the question:
  “Out of all actual positives, how many did the model correctly identify?”
 -Formula:
- Precision = TP​ / TP + FN
+ Recall = TP​ / TP + FN
 
  Recall matters when False Negatives are dangerous.   Example- in cancer detection
 
